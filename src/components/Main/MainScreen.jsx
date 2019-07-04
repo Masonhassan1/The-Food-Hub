@@ -1,6 +1,7 @@
 import React from 'react';
 import RandomMeal from './RandomMeal';
 import RecipieCard from './RecipieCard';
+
 function MainScreen({ objRecipies }) {
 	return objRecipies === null || objRecipies === '' ? (
 		<div>

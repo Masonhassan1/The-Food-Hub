@@ -3,21 +3,21 @@ import './App.css';
 /*Bootstrap*/
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap'
+import logo from './Logo.png'
 /*Components*/
-import SearchBar from './components/SearchBar'
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
-import Recipie from './components/Recipie';
+import SearchBar from './components/Header/SearchBar'
+import LoginButton from './components//Header/LoginButton';
+import LogoutButton from './components/Header/LogoutButton';
+import Recipie from './components//Recipie/Recipie';
+import MainScreen from './components//Main/MainScreen';
+import Profile from './components/Profile/Profile';
 /*Auth*/
 import { useAuth0 } from '@auth0/auth0-react';
 /*Router*/
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 /*axios search*/
 import axios from 'axios';
-import MainScreen from './components/MainScreen';
-import Profile from './components/Profile';
 
-import logo from './Logo.png'
 
 function App() {
   const [objRecipies, setObjRecipies] = useState('');

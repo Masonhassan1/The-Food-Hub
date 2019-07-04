@@ -35,6 +35,7 @@ function Recipie() {
 				source: rec.strSource,
 			};
 			setRecipie(RecipieObj);
+			console.log(recipie.ingredients);
 		});
 	}, []);
 	return (
@@ -42,10 +43,11 @@ function Recipie() {
 			<h1 className='recipie-name'>{recipie.name}</h1>
 			<div className='in'>
 				<img className='insideImg' src={recipie.thumbnail} alt={recipie.name} />
-
-				<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
+				<div className='leftbar'>
+					<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
+					<AddToFavs id={recipie.id} thumbnail={recipie.thumbnail} name={recipie.name} />
+				</div>
 			</div>
-			<AddToFavs id={recipie.id} thumbnail={recipie.thumbnail} name={recipie.name} />
 			<Instructions instr={recipie.instructions} />
 		</div>
 	);

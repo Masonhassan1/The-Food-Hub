@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form } from 'react-bootstrap';
 
 function SearchBar(props) {
@@ -23,7 +22,7 @@ function SearchBar(props) {
 				/>
 				<button
 					style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
-					className='button btn search-btn'>
+					className='button btn search-btn header'>
 					Search
 				</button>
 			</Form>

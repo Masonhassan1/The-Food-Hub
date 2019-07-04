@@ -16,8 +16,8 @@ function Ingredients(props) {
 			<div className='ingredients-container'>
 				<h2>Ingredients</h2>
 				<ListGroup className='ingredients'>
-					{fullArray.map(ingredient => (
-						<ListGroup.Item>{ingredient}</ListGroup.Item>
+					{fullArray.map((ingredient, index) => (
+						<ListGroup.Item key={index}>{ingredient}</ListGroup.Item>
 					))}
 				</ListGroup>
 			</div>

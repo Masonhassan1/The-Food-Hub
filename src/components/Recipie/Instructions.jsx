@@ -8,7 +8,9 @@ function Instructions({ instr }) {
 			<div className='instructions-container'>
 				<h2>Instructions</h2>
 				<ol className='instructions'>
-					{instructionsArray.map(instruction => instruction.length > 4 && <li>{instruction}.</li>)}
+					{instructionsArray.map(
+						(instruction, index) => instruction.length > 4 && <li key={index}>{instruction}.</li>
+					)}
 				</ol>
 			</div>
 		);

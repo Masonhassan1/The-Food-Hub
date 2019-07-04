@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+
 const LogoutButton = () => {
 	const { logout, isAuthenticated } = useAuth0();
 	const history = useHistory();
@@ -15,7 +15,7 @@ const LogoutButton = () => {
 			<div className='button-container'>
 				<Button
 					style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
-					className='button'
+					className='button header'
 					onClick={goToProfile}
 					variant='default'>
 					Profile
@@ -23,7 +23,7 @@ const LogoutButton = () => {
 				<Button
 					style={{ color: 'white', background: 'rgb(65, 65, 65)', marginLeft: '5%' }}
 					variant='default'
-					className='button'
+					className='button header'
 					onClick={logout}>
 					Logout
 				</Button>

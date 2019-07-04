@@ -14,13 +14,13 @@ function RecipieCard({ id, thumbnail, name, tags, category }) {
 				<Card.Title className='titleCard'>{name}</Card.Title>
 				<Card.Text>
 					{tags ? (
-						<p>
+						<span>
 							Category: {category} <br></br> Tags: {tags}
-						</p>
+						</span>
 					) : (
-						<p>
+						<span>
 							Category: {category} <br></br> Tags: None
-						</p>
+						</span>
 					)}
 				</Card.Text>
 			</Card.Body>

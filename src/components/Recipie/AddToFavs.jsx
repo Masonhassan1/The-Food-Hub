@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function AddToFavs({ id, thumbnail, name }) {
 	const { user, isAuthenticated } = useAuth0();
@@ -21,9 +21,15 @@ function AddToFavs({ id, thumbnail, name }) {
 	};
 
 	return isAuthenticated ? (
-		<div>
+		<div className='add-fav'>
 			<h2>Add me to favs</h2>
-			<button onClick={addRecipieToFav}>Add me</button>
+			<Button
+				style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
+				className='button fav'
+				variant='default'
+				onClick={addRecipieToFav}>
+				Add me
+			</Button>
 		</div>
 	) : (
 		<div>Log in to add me</div>

@@ -5,6 +5,11 @@
 .imgNav {
 	margin: -10px;
 	width: 200px;
+	transition: 0.2s ease-in;
+}
+
+.imgNav:hover {
+	scale: 1.05;
 }
 
 .searchBar {
@@ -12,11 +17,11 @@
 	width: 100%;
 }
 
-.button {
+.button.header {
 	transition: 0.2s ease-in;
 }
 
-.button:hover {
+.button.header:hover {
 	scale: 1.03;
 	box-shadow: 2px 2px rgba(129, 117, 10, 0.555);
 }
@@ -81,7 +86,7 @@
 }
 .in {
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 .insideImg {
 	display: block;
@@ -90,9 +95,30 @@
 	box-shadow: 7px 7px rgba(255, 232, 26, 0.493);
 }
 
+.leftbar {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+
 .ingredients-container {
-	margin: 5% auto;
-	width: 20%;
+	margin: 10% auto;
+	width: 45%;
+}
+
+.add-fav {
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+	text-justify: center;
+}
+.button.fav {
+	transition: 0.2s ease-in;
+}
+
+.button.fav:hover {
+	scale: 1.03;
+	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 }
 
 .instructions-container {
@@ -195,4 +221,14 @@
 	height: 60vh;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
+}
+
+.recipieCard.fav:hover {
+	scale: 1.03;
+	box-shadow: 10px 10px rgba(255, 232, 26, 0.493);
+}
+
+.fav-title {
+	margin-top: 20px;
+	text-align: center;
 }
