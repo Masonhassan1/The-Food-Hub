@@ -31,7 +31,6 @@ function RandomMeal() {
 				instructions: rec.strInstructions,
 				ingredients: ingredientsArray,
 				measures: measuresArray,
-
 				youtubeLink: rec.strYoutube,
 				source: rec.strSource,
 			};
@@ -41,18 +40,24 @@ function RandomMeal() {
 
 	return (
 		<>
-			<Card style={{ width: '18rem' }} className='recipieCard'>
+			<Card
+				style={{ width: '18rem' }}
+				className='recipieCard'
+				onClick={() => history.push(`/recipie/${recipie.id}`)}>
 				<Card.Img variant='top' src={recipie.thumbnail} />
 				<Card.Body>
-					<Card.Title>{recipie.name}</Card.Title>
+					<Card.Title className='titleCard'>{recipie.name}</Card.Title>
 					<Card.Text>
-						<p>
-							Category: {recipie.category} Tags: {recipie.tags}
-						</p>
+						{recipie.tags ? (
+							<p>
+								Category: {recipie.category} <br></br> Tags: {recipie.tags}
+							</p>
+						) : (
+							<p>
+								Category: {recipie.category} <br></br> Tags: None
+							</p>
+						)}
 					</Card.Text>
-					<Button variant='primary' onClick={() => history.push(`/recipie/${recipie.id}`)}>
-						See Full Recipie
-					</Button>
 				</Card.Body>
 			</Card>
 		</>

@@ -19,12 +19,12 @@ function App() {
   if (isLoading) return <div>Loading...</div>
   return (
     <div className="App">
-      <Navbar bg="light" variant="light">
+      <Navbar className="color-nav" variant="light">
         <Navbar.Brand href="#home">Recipies App</Navbar.Brand>
 
         <Form inline className="searchBar">
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
+          <Button style={{ color: "white", background: "rgb(65, 65, 65)" }} className='button' variant="default">Search</Button>
         </Form>
         <LoginButton /><LogoutButton />
       </Navbar>

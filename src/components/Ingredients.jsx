@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function Ingredients(props) {
 	const { ingArray, measuresArray } = props;
 
-	if (!ingArray) return <div>Loading...</div>;
+	if (!ingArray || !measuresArray) return <div>Loading...</div>;
 	else {
 		console.log(ingArray);
 		const fullArray = [];
@@ -15,13 +15,19 @@ function Ingredients(props) {
 		}
 		console.log(fullArray);
 		return fullArray ? (
-			<ListGroup variant='flush' className='ingredients'>
-				{fullArray.map(ingredient => (
-					<ListGroup.Item>{ingredient}</ListGroup.Item>
-				))}
-			</ListGroup>
+			<div className='ingredients-container'>
+				<h2>Ingredients</h2>
+				<ListGroup className='ingredients'>
+					{fullArray.map(ingredient => (
+						<ListGroup.Item>{ingredient}</ListGroup.Item>
+					))}
+				</ListGroup>
+			</div>
 		) : (
-			<div>Apparently there are no ingredients set</div>
+			<div>
+				<h2>Ingredients</h2>
+				<p>Apparently there are no ingredients.</p>
+			</div>
 		);
 	}
 }

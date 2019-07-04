@@ -38,9 +38,11 @@ function Recipie() {
 	}, []);
 	return (
 		<div>
-			<h1>{recipie.name}</h1>
-			<img src={recipie.thumbnail} alt={recipie.name} />
-			<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
+			<h1 className='recipie-name'>{recipie.name}</h1>
+			<div className='in'>
+				<img className='insideImg' src={recipie.thumbnail} alt={recipie.name} />
+				<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
+			</div>
 			<Instructions instr={recipie.instructions} />
 		</div>
 	);

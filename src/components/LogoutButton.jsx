@@ -7,9 +7,18 @@ const LogoutButton = () => {
 	const { logout, isAuthenticated } = useAuth0();
 	return (
 		isAuthenticated && (
-			<div>
-				<Button className='logButton'>Profile</Button> {/*Handle going to <Profile/>*/}
-				<Button className='logButton' onClick={logout}>
+			<div className='button-container'>
+				<Button
+					style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
+					className='button'
+					variant='default'>
+					Profile
+				</Button>
+				<Button
+					style={{ color: 'white', background: 'rgb(65, 65, 65)', marginLeft: '5%' }}
+					variant='default'
+					className='button'
+					onClick={logout}>
 					Logout
 				</Button>
 			</div>
