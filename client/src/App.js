@@ -9,7 +9,7 @@ import logo from './Logo.png'
 import SearchBar from './components/SearchBar'
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
-import Recipie from './components/Recipie';
+import Receipe from './components/Receipe';
 import MainScreen from './components/MainScreen';
 import Profile from './components/Profile';
 /*Auth*/
@@ -21,13 +21,13 @@ import axios from 'axios';
 
 
 function App() {
-  const [objRecipies, setObjRecipies] = useState('');
+  const [objReceipes, setObjReceipes] = useState('');
   const history = useHistory();
   const handleSubmit = info => {
-    if (!isNaN(info)) history.push(`/recipie/${info}`)
+    if (!isNaN(info)) history.push(`/receipe/${info}`)
     else {
       axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${info}`).then(res => {
-        setObjRecipies(res.data.meals)
+        setObjReceipes(res.data.meals)
       })
     }
   }
@@ -43,8 +43,8 @@ function App() {
 
       <Router>
         <Switch>
-          <Route exact path="/" children={<MainScreen objRecipies={objRecipies} />} />
-          <Route path="/recipie/:id" children={<Recipie />} />
+          <Route exact path="/" children={<MainScreen objReceipes={objReceipes} />} />
+          <Route path="/receipe/:id" children={<Receipe />} />
           <Route path="/profile" children={<Profile />} />
         </Switch>
       </Router>
