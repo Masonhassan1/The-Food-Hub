@@ -2,13 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
-function RecipieCard({ id, thumbnail, name, tags, category }) {
+function ReceipeCard({ id, thumbnail, name, tags, category }) {
 	const history = useHistory();
 	return (
 		<Card
 			style={{ width: '18rem' }}
-			className='recipieCard'
-			onClick={() => history.push(`/recipie/${id}`)}>
+			className='receipeCard'
+			onClick={() => history.push(`/receipe/${id}`)}>
 			<Card.Img variant='top' src={thumbnail} />
 			<Card.Body>
 				<Card.Title className='titleCard'>{name}</Card.Title>
