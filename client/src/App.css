@@ -64,14 +64,14 @@
 	justify-content: center;
 }
 
-.recipieCard {
+.receipeCard {
 	margin: 10px;
 	height: 90vh;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
 }
 
-.recipieCard:hover {
+.receipeCard:hover {
 	scale: 1.03;
 	box-shadow: 10px 10px rgba(255, 232, 26, 0.493);
 }
@@ -80,7 +80,7 @@
 	font-weight: bold !important;
 }
 
-.recipie-name {
+.receipe-name {
 	font-weight: bold;
 	margin: 20px auto;
 	text-transform: capitalize;
@@ -231,7 +231,7 @@
 	justify-content: center;
 }
 
-.recipieCard.fav {
+.receipeCard.fav {
 	margin: 10px;
 	height: 80vh;
 	justify-content: center;
@@ -239,7 +239,7 @@
 	transition: 0.2s ease-in;
 }
 
-.recipieCard.fav:hover {
+.receipeCard.fav:hover {
 	scale: 1.03;
 	box-shadow: 10px 10px rgba(255, 232, 26, 0.493);
 }
@@ -257,7 +257,7 @@
 	.randomMeals {
 		flex-direction: row;
 	}
-	.recipieCard {
+	.receipeCard {
 		height: 75vh;
 	}
 	.searchBar {
@@ -308,7 +308,7 @@
 		text-transform: capitalize;
 		font-size: 15px;
 	}
-	.recipieCard.fav {
+	.receipeCard.fav {
 		height: 65vh;
 	}
 }
