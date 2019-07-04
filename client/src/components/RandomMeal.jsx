@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import RecipieCard from './RecipieCard';
+import ReceipeCard from './ReceipeCard';
 
 function RandomMeal() {
-	const [recipie, setRecipie] = useState({});
+	const [receipe, setReceipe] = useState({});
 	let ingredientsArray = [];
 	let measuresArray = [];
 
@@ -18,7 +18,7 @@ function RandomMeal() {
 					measuresArray.push(rec[indexMeasure]);
 				}
 			}
-			const RecipieObj = {
+			const ReceipeObj = {
 				name: rec.strMeal,
 				id: rec.idMeal,
 				category: rec.strCategory,
@@ -30,17 +30,17 @@ function RandomMeal() {
 				youtubeLink: rec.strYoutube,
 				source: rec.strSource,
 			};
-			setRecipie(RecipieObj);
+			setReceipe(ReceipeObj);
 		});
 	}, []);
 
 	return (
-		<RecipieCard
-			id={recipie.id}
-			thumbnail={recipie.thumbnail}
-			name={recipie.name}
-			tags={recipie.tags}
-			category={recipie.category}
+		<ReceipeCard
+			id={receipe.id}
+			thumbnail={receipe.thumbnail}
+			name={receipe.name}
+			tags={receipe.tags}
+			category={receipe.category}
 		/>
 	);
 }
