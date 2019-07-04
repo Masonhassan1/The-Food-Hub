@@ -1,9 +1,9 @@
 import React from 'react';
 import RandomMeal from './RandomMeal';
-import RecipieCard from './RecipieCard';
+import ReceipeCard from './ReceipeCard';
 
-function MainScreen({ objRecipies }) {
-	return objRecipies === null || objRecipies === '' ? (
+function MainScreen({ objReceipe }) {
+	return objReceipes === null || objReceipes === '' ? (
 		<div>
 			<h3 className='random-title'>Random meals</h3>
 			<div className='randomMeals'>
@@ -15,13 +15,13 @@ function MainScreen({ objRecipies }) {
 		</div>
 	) : (
 		<div className='searchedMeals'>
-			{objRecipies.map(recipie => (
-				<RecipieCard
-					id={recipie.idMeal}
-					thumbnail={recipie.strMealThumb}
-					name={recipie.strMeal}
-					tags={recipie.strTags}
-					category={recipie.strCategory}
+			{objReceipes.map(receipe => (
+				<ReceipeCard
+					id={receipe.idMeal}
+					thumbnail={receipe.strMealThumb}
+					name={receipe.strMeal}
+					tags={receipe.strTags}
+					category={receipe.strCategory}
 				/>
 			))}
 		</div>
