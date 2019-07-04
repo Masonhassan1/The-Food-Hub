@@ -2,7 +2,7 @@
 
 # The Food Hub
 
-The Food Hub is a website where you can search for cooking recipies!
+The Food Hub is a website where you can search for cooking receipes!
 
 ![MainScreen](./Images/Main-Screen.JPG)
 ![Recipie1](./Images/Recipie1.JPG)
@@ -16,7 +16,7 @@ Check out the live version [here](https://the-foodhub.herokuapp.com/)
 
 ## Api and DB
 
-This webApp is using [The Meal DB](https://www.themealdb.com/) to get the recipies. To manage users we use [Auth0](https://auth0.com/) and to save each user's favs, [MongoDB](https://www.mongodb.com/).
+This webApp is using [The Meal DB](https://www.themealdb.com/) to get the receipes. To manage users we use [Auth0](https://auth0.com/) and to save each user's favs, [MongoDB](https://www.mongodb.com/).
 
 ## Contributing 🖇️
 
