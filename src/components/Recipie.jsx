@@ -45,7 +45,7 @@ function Recipie() {
 
 				<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
 			</div>
-			<AddToFavs />
+			<AddToFavs id={recipie.id} thumbnail={recipie.thumbnail} name={recipie.name} />
 			<Instructions instr={recipie.instructions} />
 		</div>
 	);

@@ -16,6 +16,9 @@ mongoose.connect(config.MONGODB_URI || 'mongodb://localhost/recipie_mongo', {
 
 mongoose.connection.on('connected', () => console.log('Mongo connected!!'))
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));//he has it set as false
+
 // HTTP request logger
 app.use(morgan('tiny'));
 

@@ -8,7 +8,6 @@ const User = require('../Models/User');
 router.get('/api', (req, res) => {
   User.find({})
     .then((data) => {
-      console.log('Data:', data);
       res.json(data);
     })
     .catch(error => {
@@ -18,10 +17,17 @@ router.get('/api', (req, res) => {
 });
 
 router.post('/api/save', (req, res) => {
-  console.log('usrId', req.usrId)
-  res.json({
-    msg: 'data recieved'
-  })
+  const data = req.body;
+  const newUser = new User(data);
+  newUser.save((error) => {
+    if (error) res.status(500).json({ msg: 'Sorry, Internal server error' })
+    else {
+      res.json({
+        msg: 'data recieved'
+      })
+    }
+  });
+
 })
 
 router.get('/api/name', (req, res) => {

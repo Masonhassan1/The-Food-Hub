@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import FavsDisplayer from './FavsDisplayer';
 
 function Profile() {
 	const { user, isAuthenticated } = useAuth0();
-	if (isAuthenticated) {
-		axios({
-			url: '/api/save',
-			method: 'POST',
-			data: {
-				usrId: user.sub,
-				likedIds: ['new shit'],
-			},
-		})
-			.then(() => console.log('data sent to server'))
-			.catch(() => console.log('EERRROOOORR'));
-	}
+	const [userDBData, setUserDBData] = useState([]);
+
+	useEffect(() => {
+		console.log('getting data');
+		const getUserData = () => {
+			axios
+				.get('/api')
+				.then(response => {
+					const data = response.data;
+					const userData = data.filter(obj => obj.usrId === user.sub);
+					setUserDBData(userData);
+				})
+				.catch(() => {
+					console.log('Error getting your favs');
+				});
+		};
+		getUserData();
+	}, []);
+
 	return isAuthenticated ? (
 		<div>
 			{user.email_verified ? (
@@ -43,6 +51,9 @@ function Profile() {
 					</Col>
 				</Row>
 			</Container>
+			<div>
+				<FavsDisplayer data={userDBData} />
+			</div>
 		</div>
 	) : (
 		<div>You must login to be able to see your profile</div>
