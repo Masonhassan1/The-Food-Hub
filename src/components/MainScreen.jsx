@@ -1,9 +1,7 @@
 import React from 'react';
 import RandomMeal from './RandomMeal';
 import RecipieCard from './RecipieCard';
-function MainScreen({ listMany, objRecipies }) {
-	console.log(objRecipies);
-
+function MainScreen({ objRecipies }) {
 	return objRecipies === null || objRecipies === '' ? (
 		<div>
 			<h3 className='random-title'>Random meals</h3>

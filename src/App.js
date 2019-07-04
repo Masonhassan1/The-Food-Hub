@@ -15,16 +15,15 @@ import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router
 /*axios search*/
 import axios from 'axios';
 import MainScreen from './components/MainScreen';
+import Profile from './components/Profile';
 
 function App() {
-  const [listMany, setListMany] = useState(false);
   const [objRecipies, setObjRecipies] = useState('');
   const history = useHistory();
   const handleSubmit = info => {
     if (!isNaN(info)) history.push(`/recipie/${info}`)
     else {
       axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${info}`).then(res => {
-        setListMany(true)
         setObjRecipies(res.data.meals)
       })
     }
@@ -41,8 +40,9 @@ function App() {
 
       <Router>
         <Switch>
-          <Route exact path="/" children={<MainScreen listMany={listMany} objRecipies={objRecipies} />} />
+          <Route exact path="/" children={<MainScreen objRecipies={objRecipies} />} />
           <Route path="/recipie/:id" children={<Recipie />} />
+          <Route path="/profile" children={<Profile />} />
         </Switch>
       </Router>
     </div>
