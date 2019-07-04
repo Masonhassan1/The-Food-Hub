@@ -3,13 +3,18 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const config = require('./config.json');
+require('dotenv').config();
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+}
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 const routes = require('./Routes/api')
 
-mongoose.connect(config.MONGODB_URI || 'mongodb://localhost/recipie_mongo', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipie_mongo', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
