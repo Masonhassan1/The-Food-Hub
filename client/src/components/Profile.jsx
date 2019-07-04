@@ -52,7 +52,7 @@ function Profile() {
 				</Row>
 			</Container>
 			<div>
-				<h3 className='fav-title'>Your Favorite Recipies</h3>
+				<h3 className='fav-title'>Your Favorite Receipes</h3>
 				<FavsDisplayer data={userDBData} />
 			</div>
 		</div>
