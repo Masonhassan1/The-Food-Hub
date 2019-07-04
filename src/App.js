@@ -1,41 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 /*Bootstrap*/
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
 /*Components*/
+import SearchBar from './components/SearchBar'
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
-import RandomMeal from './components/RandomMeal';
 import Recipie from './components/Recipie';
 /*Auth*/
 import { useAuth0 } from '@auth0/auth0-react';
 /*Router*/
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
+/*axios search*/
+import axios from 'axios';
+import MainScreen from './components/MainScreen';
 
 function App() {
+  const [listMany, setListMany] = useState(false);
+  const [objRecipies, setObjRecipies] = useState('');
+  const history = useHistory();
+  const handleSubmit = info => {
+    if (!isNaN(info)) history.push(`/recipie/${info}`)
+    else {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${info}`).then(res => {
+        setListMany(true)
+        setObjRecipies(res.data.meals)
+      })
+    }
+  }
   const { isLoading, isAuthenticated } = useAuth0();
-
   if (isLoading) return <div>Loading...</div>
   return (
     <div className="App">
       <Navbar className="color-nav" variant="light">
-        <Navbar.Brand href="#home">Recipies App</Navbar.Brand>
-
-        <Form inline className="searchBar">
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button style={{ color: "white", background: "rgb(65, 65, 65)" }} className='button' variant="default">Search</Button>
-        </Form>
+        <Navbar.Brand href="/">Recipies App</Navbar.Brand>
+        <SearchBar onSubmit={handleSubmit} />
         <LoginButton /><LogoutButton />
       </Navbar>
 
       <Router>
         <Switch>
-          <Route exact path="/" children={<div className="randomMeals">
-            <RandomMeal />
-            <RandomMeal />
-            <RandomMeal />
-          </div>} />
+          <Route exact path="/" children={<MainScreen listMany={listMany} objRecipies={objRecipies} />} />
           <Route path="/recipie/:id" children={<Recipie />} />
         </Switch>
       </Router>

@@ -3,7 +3,8 @@
 }
 
 .searchBar {
-	margin-left: 30%;
+	margin-left: 100%;
+	width: 100%;
 }
 
 .button {
@@ -16,9 +17,19 @@
 }
 
 .button-container {
-	margin-left: 20%;
+	margin-left: 50%;
 	display: flex;
 	flex-direction: row;
+}
+
+.random-title {
+	margin: 20px auto -15px auto;
+	text-transform: capitalize;
+	width: fit-content;
+	text-decoration-line: underline;
+	text-decoration-skip: auto;
+	text-decoration-style: wavy;
+	text-decoration-color: rgb(255, 232, 26);
 }
 
 .randomMeals {
@@ -28,9 +39,17 @@
 	justify-content: center;
 }
 
+.searchedMeals {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 30px auto;
+	justify-content: center;
+}
+
 .recipieCard {
 	margin: 10px;
-	height: 70vh;
+	height: 75vh;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
 }

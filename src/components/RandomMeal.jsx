@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card } from 'react-bootstrap';
+import RecipieCard from './RecipieCard';
 
 function RandomMeal() {
-	let history = useHistory();
-
 	const [recipie, setRecipie] = useState({});
 	let ingredientsArray = [];
 	let measuresArray = [];
@@ -39,28 +36,13 @@ function RandomMeal() {
 	}, []);
 
 	return (
-		<>
-			<Card
-				style={{ width: '18rem' }}
-				className='recipieCard'
-				onClick={() => history.push(`/recipie/${recipie.id}`)}>
-				<Card.Img variant='top' src={recipie.thumbnail} />
-				<Card.Body>
-					<Card.Title className='titleCard'>{recipie.name}</Card.Title>
-					<Card.Text>
-						{recipie.tags ? (
-							<p>
-								Category: {recipie.category} <br></br> Tags: {recipie.tags}
-							</p>
-						) : (
-							<p>
-								Category: {recipie.category} <br></br> Tags: None
-							</p>
-						)}
-					</Card.Text>
-				</Card.Body>
-			</Card>
-		</>
+		<RecipieCard
+			id={recipie.id}
+			thumbnail={recipie.thumbnail}
+			name={recipie.name}
+			tags={recipie.tags}
+			category={recipie.category}
+		/>
 	);
 }
 

@@ -9,7 +9,7 @@ function LoginButton() {
 			<Button
 				style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
 				variant='default'
-				className='button'
+				className='button button-container'
 				onClick={loginWithRedirect}>
 				Login
 			</Button>
