@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function SearchBar(props) {
 	const [inputSearch, setInputSearch] = useState('');
@@ -20,11 +21,12 @@ function SearchBar(props) {
 					placeholder='Search'
 					className='mr-sm-2'
 				/>
-				<button
+				<Button
 					style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
+					variant='default'
 					className='button btn search-btn header'>
 					Search
-				</button>
+				</Button>
 			</Form>
 		</div>
 	);

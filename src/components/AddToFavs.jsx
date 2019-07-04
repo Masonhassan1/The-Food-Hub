@@ -18,6 +18,7 @@ function AddToFavs({ id, thumbnail, name }) {
 		})
 			.then(() => console.log('data sent to server'))
 			.catch(() => console.log('EERRROOOORR'));
+		window.alert('Recipie added to favourites');
 	};
 
 	return isAuthenticated ? (

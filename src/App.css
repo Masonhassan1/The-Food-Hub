@@ -218,7 +218,8 @@
 
 .recipieCard.fav {
 	margin: 10px;
-	height: 60vh;
+	height: 65vh;
+	justify-content: center;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
 }
@@ -231,4 +232,8 @@
 .fav-title {
 	margin-top: 20px;
 	text-align: center;
+}
+.fav-button {
+	margin-top: 2px;
+	margin-left: 30%;
 }

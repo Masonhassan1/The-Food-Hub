@@ -30,13 +30,18 @@ router.post('/api/save', (req, res) => {
 
 })
 
-router.get('/api/name', (req, res) => {
-  const data = {
-    username: 'basdfslbla',
-    age: 3
-  }
-  res.json(data);
-});
+router.delete('/api/delete/:id/:userId', (req, res) => {
+  const { id, userId } = req.params;
+  User.findOneAndRemove({ "usrId": userId, "recipieId": id })
+    .then(data => {
+      data.remove(err => {
+        if (err) res.status(500).send({ msg: 'Error al eliminar la receta.' })
+        res.status(200).send({ msg: 'receta eliminada' })
+      })
+    })
+
+})
+
 
 
 module.exports = router;
