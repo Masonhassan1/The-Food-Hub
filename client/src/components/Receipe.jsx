@@ -5,9 +5,9 @@ import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 import AddToFavs from './AddToFavs';
 
-function Recipie() {
+function Receipe() {
 	const { id } = useParams();
-	const [recipie, setRecipie] = useState({});
+	const [receipe, setReceipe] = useState({});
 	let ingredientsArray = [];
 	let measuresArray = [];
 
@@ -22,7 +22,7 @@ function Recipie() {
 					measuresArray.push(rec[indexMeasure]);
 				}
 			}
-			const RecipieObj = {
+			const ReceipeObj = {
 				name: rec.strMeal,
 				id: rec.idMeal,
 				category: rec.strCategory,
@@ -34,20 +34,20 @@ function Recipie() {
 				youtubeLink: rec.strYoutube,
 				source: rec.strSource,
 			};
-			setRecipie(RecipieObj);
+			setReceipe(ReceipeObj);
 		});
 	}, []);
 	return (
 		<div>
-			<h1 className='recipie-name'>{recipie.name}</h1>
+			<h1 className='receipe-name'>{receipe.name}</h1>
 			<div className='in'>
-				<img className='insideImg' src={recipie.thumbnail} alt={recipie.name} />
+				<img className='insideImg' src={receipe.thumbnail} alt={receipe.name} />
 				<div className='leftbar'>
-					<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
-					<AddToFavs id={recipie.id} thumbnail={recipie.thumbnail} name={recipie.name} />
+					<Ingredients ingArray={receipe.ingredients} measuresArray={receipe.measures} />
+					<AddToFavs id={receipe.id} thumbnail={receipe.thumbnail} name={receipe.name} />
 				</div>
 			</div>
-			<Instructions instr={recipie.instructions} />
+			<Instructions instr={receipe.instructions} />
 		</div>
 	);
 }
