@@ -2,7 +2,7 @@
 
 # The Food Hub
 
-The Food Hub is a website where you can search for cooking receipes!
+The Food Hub is a website where you can search for cooking recipes!
 
 ![MainScreen](./Images/Main-Screen.JPG)
 ![Recipie1](./Images/Recipie1.JPG)
