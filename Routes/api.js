@@ -5,18 +5,18 @@ const router = express.Router();
 const User = require('../Models/User');
 
 
-router.get('/api', (req, res) => {
+router.get('/', (req, res) => {
   User.find({})
     .then((data) => {
       res.json(data);
     })
     .catch(error => {
-      console.log(error)
+      console.log('ERROR IN BACKEND', error)
     })
 
 });
 
-router.post('/api/save', (req, res) => {
+router.post('/save', (req, res) => {
   const data = req.body;
   const newUser = new User(data);
   newUser.save((error) => {
@@ -30,7 +30,11 @@ router.post('/api/save', (req, res) => {
 
 })
 
-router.delete('/api/delete/:id/:userId', (req, res) => {
+router.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build'))
+})
+
+router.delete('/delete/:id/:userId', (req, res) => {
   const { id, userId } = req.params;
   User.findOneAndRemove({ "usrId": userId, "recipieId": id })
     .then(data => {

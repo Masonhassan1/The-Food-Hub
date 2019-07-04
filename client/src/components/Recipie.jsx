@@ -35,7 +35,6 @@ function Recipie() {
 				source: rec.strSource,
 			};
 			setRecipie(RecipieObj);
-			console.log(recipie.ingredients);
 		});
 	}, []);
 	return (

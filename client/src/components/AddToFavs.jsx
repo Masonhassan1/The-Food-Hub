@@ -16,7 +16,7 @@ function AddToFavs({ id, thumbnail, name }) {
 				recipieName: name,
 			},
 		})
-			.then(() => console.log('data sent to server'))
+			.then(() => console.log('Recipie saved'))
 			.catch(() => console.log('EERRROOOORR'));
 		window.alert('Recipie added to favourites');
 	};

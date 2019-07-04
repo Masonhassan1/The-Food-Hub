@@ -20,8 +20,9 @@ function Profile() {
 					const userData = data.filter(obj => obj.usrId === user.sub);
 					setUserDBData(userData);
 				})
-				.catch(() => {
+				.catch(err => {
 					console.log('Error getting your favs');
+					console.log(err);
 				});
 		};
 		getUserData();

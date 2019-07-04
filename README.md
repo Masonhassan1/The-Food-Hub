@@ -12,7 +12,7 @@ The Food Hub is a website where you can search for cooking recipies!
 
 ## Live version
 
-Not availiable yet!
+Check out the live version [here](https://the-foodhub.herokuapp.com/)
 
 ## Api and DB
 

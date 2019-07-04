@@ -7,7 +7,6 @@ import axios from 'axios';
 
 function FavsDisplayer(props) {
 	const { user } = useAuth0();
-
 	const handleEliminate = recipieId => {
 		axios({
 			url: `/api/delete/${recipieId}/${user.sub}`,
