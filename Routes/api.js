@@ -36,11 +36,11 @@ router.get('*', (req, res) => {
 
 router.delete('/delete/:id/:userId', (req, res) => {
   const { id, userId } = req.params;
-  User.findOneAndRemove({ "usrId": userId, "recipieId": id })
+  User.findOneAndRemove({ "usrId": userId, "receipeId": id })
     .then(data => {
       data.remove(err => {
-        if (err) res.status(500).send({ msg: 'Error al eliminar la receta.' })
-        res.status(200).send({ msg: 'receta eliminada' })
+        if (err) res.status(500).send({ msg: 'Error in eliminating receipe.' })
+        res.status(200).send({ msg: 'Receipe eliminated' })
       })
     })
 
