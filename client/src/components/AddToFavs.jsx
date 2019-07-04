@@ -5,20 +5,20 @@ import { Button } from 'react-bootstrap';
 
 function AddToFavs({ id, thumbnail, name }) {
 	const { user, isAuthenticated } = useAuth0();
-	const addRecipieToFav = () => {
+	const addReceipeToFav = () => {
 		axios({
 			url: '/api/save',
 			method: 'POST',
 			data: {
 				usrId: user.sub,
-				recipieId: id,
-				recipieThumb: thumbnail,
-				recipieName: name,
+				receipeID: id,
+				receipeThumb: thumbnail,
+				receipeName: name,
 			},
 		})
-			.then(() => console.log('Recipie saved'))
+			.then(() => console.log('Receipe saved'))
 			.catch(() => console.log('EERRROOOORR'));
-		window.alert('Recipie added to favourites');
+		window.alert('Receipe added to favourites');
 	};
 
 	return isAuthenticated ? (
@@ -28,7 +28,7 @@ function AddToFavs({ id, thumbnail, name }) {
 				style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
 				className='button fav'
 				variant='default'
-				onClick={addRecipieToFav}>
+				onClick={addReceipeToFav}>
 				Add me
 			</Button>
 		</div>
