@@ -17,6 +17,8 @@ import axios from 'axios';
 import MainScreen from './components/MainScreen';
 import Profile from './components/Profile';
 
+import logo from './Logo.png'
+
 function App() {
   const [objRecipies, setObjRecipies] = useState('');
   const history = useHistory();
@@ -28,12 +30,12 @@ function App() {
       })
     }
   }
-  const { isLoading, isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0();
   if (isLoading) return <div>Loading...</div>
   return (
     <div className="App">
       <Navbar className="color-nav" variant="light">
-        <Navbar.Brand href="/">The Food Hub</Navbar.Brand>
+        <Navbar.Brand href="/"><img className="imgNav" src={logo} alt="dfsd" /></Navbar.Brand>
         <SearchBar onSubmit={handleSubmit} />
         <LoginButton /><LogoutButton />
       </Navbar>
@@ -45,7 +47,7 @@ function App() {
           <Route path="/profile" children={<Profile />} />
         </Switch>
       </Router>
-    </div>
+    </div >
   );
 }
 

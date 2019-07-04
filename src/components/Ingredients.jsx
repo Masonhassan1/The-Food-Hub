@@ -7,13 +7,11 @@ function Ingredients(props) {
 
 	if (!ingArray || !measuresArray) return <div>Loading...</div>;
 	else {
-		console.log(ingArray);
 		const fullArray = [];
 		for (var i = 1; i < ingArray.length; i++) {
 			if (ingArray[i] !== null) fullArray.push(`${measuresArray[i]}- ${ingArray[i]}`);
 			else return;
 		}
-		console.log(fullArray);
 		return fullArray ? (
 			<div className='ingredients-container'>
 				<h2>Ingredients</h2>

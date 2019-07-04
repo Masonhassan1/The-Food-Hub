@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
+import AddToFavs from './AddToFavs';
 
 function Recipie() {
 	const { id } = useParams();
@@ -41,8 +42,10 @@ function Recipie() {
 			<h1 className='recipie-name'>{recipie.name}</h1>
 			<div className='in'>
 				<img className='insideImg' src={recipie.thumbnail} alt={recipie.name} />
+
 				<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
 			</div>
+			<AddToFavs />
 			<Instructions instr={recipie.instructions} />
 		</div>
 	);

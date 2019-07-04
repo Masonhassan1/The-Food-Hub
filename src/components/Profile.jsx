@@ -4,9 +4,22 @@ import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import axios from 'axios';
 
 function Profile() {
 	const { user, isAuthenticated } = useAuth0();
+	if (isAuthenticated) {
+		axios({
+			url: '/api/save',
+			method: 'POST',
+			data: {
+				usrId: user.sub,
+				likedIds: ['new shit'],
+			},
+		})
+			.then(() => console.log('data sent to server'))
+			.catch(() => console.log('EERRROOOORR'));
+	}
 	return isAuthenticated ? (
 		<div>
 			{user.email_verified ? (

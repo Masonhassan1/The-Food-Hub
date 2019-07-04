@@ -2,6 +2,11 @@
 	background-color: rgb(255, 232, 26);
 }
 
+.imgNav {
+	margin: -10px;
+	width: 200px;
+}
+
 .searchBar {
 	margin-left: 100%;
 	width: 100%;
@@ -23,6 +28,7 @@
 }
 
 .random-title {
+	font-weight: bold;
 	margin: 20px auto -15px auto;
 	text-transform: capitalize;
 	width: fit-content;
@@ -64,6 +70,7 @@
 }
 
 .recipie-name {
+	font-weight: bold;
 	margin: 20px auto;
 	text-transform: capitalize;
 	width: fit-content;
