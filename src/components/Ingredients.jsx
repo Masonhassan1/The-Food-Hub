@@ -1,10 +1,16 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { LinearProgress } from '@material-ui/core';
 
 function Ingredients(props) {
 	const { ingArray, measuresArray } = props;
 
-	if (!ingArray || !measuresArray) return <div>Loading...</div>;
+	if (!ingArray || !measuresArray)
+		return (
+			<div className='prog'>
+				<LinearProgress />
+			</div>
+		);
 	else {
 		const fullArray = [];
 		for (var i = 1; i < ingArray.length; i++) {

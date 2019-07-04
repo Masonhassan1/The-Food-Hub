@@ -24,7 +24,7 @@ function SearchBar(props) {
 				<Button
 					style={{ color: 'white', background: 'rgb(65, 65, 65)' }}
 					variant='default'
-					className='button btn search-btn header'>
+					className='button header'>
 					Search
 				</Button>
 			</Form>

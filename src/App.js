@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { LinearProgress } from '@material-ui/core';
 /*Bootstrap*/
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap'
@@ -31,11 +32,11 @@ function App() {
     }
   }
   const { isLoading } = useAuth0();
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <div className="prog"><LinearProgress /></div>
   return (
     <div className="App">
       <Navbar className="color-nav" variant="light">
-        <Navbar.Brand href="/"><img className="imgNav" src={logo} alt="dfsd" /></Navbar.Brand>
+        <Navbar.Brand href="/"><img className="imgNav" src={logo} alt="The Food Hub" /></Navbar.Brand>
         <SearchBar onSubmit={handleSubmit} />
         <LoginButton /><LogoutButton />
       </Navbar>

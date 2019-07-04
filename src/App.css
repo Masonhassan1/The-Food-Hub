@@ -13,8 +13,9 @@
 }
 
 .searchBar {
-	margin-left: 100%;
-	width: 100%;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
 }
 
 .button.header {
@@ -27,9 +28,14 @@
 }
 
 .button-container {
-	margin-left: 50%;
+	margin-left: -310px;
+	margin-top: 200px;
 	display: flex;
 	flex-direction: row;
+}
+
+.prog {
+	margin: 20% 45%;
 }
 
 .random-title {
@@ -45,7 +51,7 @@
 
 .randomMeals {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	margin: 30px auto;
 	justify-content: center;
 }
@@ -60,7 +66,7 @@
 
 .recipieCard {
 	margin: 10px;
-	height: 75vh;
+	height: 90vh;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
 }
@@ -86,9 +92,11 @@
 }
 .in {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 .insideImg {
+	width: 100%;
+	height: auto;
 	display: block;
 	margin: 5% auto;
 	border-radius: 15px;
@@ -98,12 +106,12 @@
 .leftbar {
 	display: flex;
 	flex-direction: column;
-	width: 40%;
+	width: 100%;
 }
 
 .ingredients-container {
 	margin: 10% auto;
-	width: 45%;
+	width: 80%;
 }
 
 .add-fav {
@@ -206,6 +214,12 @@
 
 .profile-nickname {
 	text-transform: capitalize;
+	font-size: 5vw;
+}
+
+.profile-email {
+	text-transform: capitalize;
+	font-size: 3vw;
 }
 
 .favMeals {
@@ -218,7 +232,7 @@
 
 .recipieCard.fav {
 	margin: 10px;
-	height: 65vh;
+	height: 80vh;
 	justify-content: center;
 	box-shadow: 5px 5px rgba(255, 232, 26, 0.493);
 	transition: 0.2s ease-in;
@@ -236,4 +250,58 @@
 .fav-button {
 	margin-top: 2px;
 	margin-left: 30%;
+}
+
+@media (min-width: 900px) {
+	.randomMeals {
+		flex-direction: row;
+	}
+	.recipieCard {
+		height: 75vh;
+	}
+	.searchBar {
+		width: 100%;
+		margin-left: 100%;
+		display: flex;
+		flex-direction: row;
+	}
+	.button-container {
+		margin-left: 50%;
+		margin-top: 0;
+		display: flex;
+		flex-direction: row;
+	}
+	.insideImg {
+		width: auto;
+		height: auto;
+		display: block;
+		margin: 5% auto;
+		border-radius: 15px;
+		box-shadow: 7px 7px rgba(255, 232, 26, 0.493);
+	}
+	.in {
+		display: flex;
+		flex-direction: row;
+	}
+	.leftbar {
+		display: flex;
+		flex-direction: column;
+		width: 40%;
+	}
+
+	.ingredients-container {
+		margin: 10% auto;
+		width: 45%;
+	}
+	.profile-nickname {
+		text-transform: capitalize;
+		font-size: 3vw;
+	}
+	.profile-email {
+		text-transform: capitalize;
+		font-size: 15px;
+	}
+	.recipieCard.fav {
+		height: 65vh;
+	}
 }

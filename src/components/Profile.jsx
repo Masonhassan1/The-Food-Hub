@@ -12,7 +12,6 @@ function Profile() {
 	const [userDBData, setUserDBData] = useState([]);
 
 	useEffect(() => {
-		console.log('getting data');
 		const getUserData = () => {
 			axios
 				.get('/api')
