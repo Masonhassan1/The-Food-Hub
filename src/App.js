@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <Navbar className="color-nav" variant="light">
-        <Navbar.Brand href="/">Recipies App</Navbar.Brand>
+        <Navbar.Brand href="/">The Food Hub</Navbar.Brand>
         <SearchBar onSubmit={handleSubmit} />
         <LoginButton /><LogoutButton />
       </Navbar>
