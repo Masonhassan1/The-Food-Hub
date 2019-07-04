@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import Ingredients from './Ingredients';
+import Instructions from './Instructions';
 
-function RandomMeal() {
-	let history = useHistory();
-
+function Recipie() {
+	const { id } = useParams();
 	const [recipie, setRecipie] = useState({});
 	let ingredientsArray = [];
 	let measuresArray = [];
 
 	useEffect(() => {
-		axios.get('https://www.themealdb.com/api/json/v1/1/random.php').then(res => {
+		axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).then(res => {
 			const rec = res.data.meals[0];
 			for (var i = 1; i < 20; i++) {
 				const indexIngredient = `strIngredient${i}`;
@@ -31,32 +30,20 @@ function RandomMeal() {
 				instructions: rec.strInstructions,
 				ingredients: ingredientsArray,
 				measures: measuresArray,
-
 				youtubeLink: rec.strYoutube,
 				source: rec.strSource,
 			};
 			setRecipie(RecipieObj);
 		});
 	}, []);
-
 	return (
-		<>
-			<Card style={{ width: '18rem' }} className='recipieCard'>
-				<Card.Img variant='top' src={recipie.thumbnail} />
-				<Card.Body>
-					<Card.Title>{recipie.name}</Card.Title>
-					<Card.Text>
-						<p>
-							Category: {recipie.category} Tags: {recipie.tags}
-						</p>
-					</Card.Text>
-					<Button variant='primary' onClick={() => history.push(`/recipie/${recipie.id}`)}>
-						See Full Recipie
-					</Button>
-				</Card.Body>
-			</Card>
-		</>
+		<div>
+			<h1>{recipie.name}</h1>
+			<img src={recipie.thumbnail} alt={recipie.name} />
+			<Ingredients ingArray={recipie.ingredients} measuresArray={recipie.measures} />
+			<Instructions instr={recipie.instructions} />
+		</div>
 	);
 }
 
-export default RandomMeal;
+export default Recipie;

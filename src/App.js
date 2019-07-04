@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
+/*Bootstrap*/
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap'
+/*Components*/
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
-import Profile from './components/Profile';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Navbar, Form, FormControl, Button } from 'react-bootstrap'
 import RandomMeal from './components/RandomMeal';
+import Recipie from './components/Recipie';
+/*Auth*/
+import { useAuth0 } from '@auth0/auth0-react';
+/*Router*/
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
@@ -23,12 +28,17 @@ function App() {
         </Form>
         <LoginButton /><LogoutButton />
       </Navbar>
-      <h2>Random Recipies:</h2>
-      <div className="randomMeals">
-        <RandomMeal />
-        <RandomMeal />
-        <RandomMeal />
-      </div>
+
+      <Router>
+        <Switch>
+          <Route exact path="/" children={<div className="randomMeals">
+            <RandomMeal />
+            <RandomMeal />
+            <RandomMeal />
+          </div>} />
+          <Route path="/recipie/:id" children={<Recipie />} />
+        </Switch>
+      </Router>
     </div>
   );
 }

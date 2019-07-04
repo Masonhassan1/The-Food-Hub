@@ -8,7 +8,7 @@ const LogoutButton = () => {
 	return (
 		isAuthenticated && (
 			<div>
-				<Button className='profileButton'>Profile</Button> {/*Handle going to <Profile/>*/}
+				<Button className='logButton'>Profile</Button> {/*Handle going to <Profile/>*/}
 				<Button className='logButton' onClick={logout}>
 					Logout
 				</Button>

@@ -1,7 +1,3 @@
-.App {
-	text-align: center;
-}
-
 .searchBar {
 	margin-left: 30%;
 }
@@ -17,6 +13,15 @@
 	justify-content: center;
 }
 
+img {
+	margin: 10px auto;
+}
+
 .recipieCard {
 	margin: 10px;
+}
+
+.ingredients {
+	margin: 10px left;
+	width: 20%;
 }
